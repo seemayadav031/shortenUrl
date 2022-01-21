@@ -10,10 +10,12 @@ app.use(bodyParser.json());              //tells the system that you want json t
 
 app.use(bodyParser.urlencoded({ extended: true }));//tells the system whether you want to use a simple algorithm for shallow parsing (i.e. false) or complex algorithm for deep parsing that can deal with nested objects (i.e. true).
 
-mongoose.connect("mongodb+srv://user-open-to-all:hiPassword123@cluster0.xgk0k.mongodb.net/seema_yadav-database?retryWrites=true&w=majority", { useNewUrlParser: true })
+// mongoose.connect("mongodb+srv://user-open-to-all:hiPassword123@cluster0.xgk0k.mongodb.net/seema_yadav-database?retryWrites=true&w=majority", { useNewUrlParser: true })
+//     .then(() => console.log('mongodb running and connected'))
+//     .catch(err => console.log(err))
+mongoose.connect("mongodb+srv://users-open-to-all:hiPassword123@cluster0.uh35t.mongodb.net/seema_yadav-DB?retryWrites=true&w=majority", { useNewUrlParser: true })
     .then(() => console.log('mongodb running and connected'))
     .catch(err => console.log(err))
-
 
 app.use('/', route);
 

@@ -2,7 +2,7 @@ const urlModel = require('../models/urlModel.js');
 
 const { isValidUrl } = require('../validations/validator.js');
 
-//****************** API for create author ******************
+
 const shortid = require('shortid');
 
 const baseUrl = 'http://localhost:3000';
@@ -14,6 +14,7 @@ const { redisClient } = require("../redis.js");
 const SET_ASYNC = promisify(redisClient.SET).bind(redisClient);
 const GET_ASYNC = promisify(redisClient.GET).bind(redisClient);
 
+//****************** API to make long url short ******************
 let shortenUrl = async (req, res) => {
 
     let longUrl = req.body.longUrl;
@@ -56,7 +57,7 @@ let shortenUrl = async (req, res) => {
 
 }
 
-
+//****************** API to redirect to long url through urlcode ******************
 let fetchOriginalUrl = async (req, res) => {
     try {
 
@@ -90,7 +91,7 @@ const getUrlList = async function (req, res) {
 
     let list = await urlModel.find();
 
-    res.send({ msg: list });
+    res.status(200).send({status:true, msg: list });
 };
 
 
